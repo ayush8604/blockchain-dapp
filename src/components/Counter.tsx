@@ -37,14 +37,14 @@ const Counter: React.FC = () => {
   };
 
   // Handle refresh counter
-  const handleRefresh = async () => {
-    if (!isConnected) {
-      setShowConnectMessage(true);
-      return;
-    }
+  // const handleRefresh = async () => {
+  //   if (!isConnected) {
+  //     setShowConnectMessage(true);
+  //     return;
+  //   }
     
-    await getCount();
-  };
+  //   await getCount();
+  // };
 
   // Check if the connected network is a testnet or local network
   const isTestnetOrLocal = () => {
@@ -58,7 +58,7 @@ const Counter: React.FC = () => {
         <h2 className="card-title">Smart Contract Counter</h2>
         
         {isTestnetOrLocal() && (
-          <div className="bg-blue-900 bg-opacity-50 p-2 rounded-md text-sm text-blue-100 mb-4">
+          <div className="p-2 rounded-md text-sm text-blue-100 mb-4">
             <p>You are connected to a test network. Contract interactions won't affect mainnet.</p>
           </div>
         )}
@@ -122,9 +122,9 @@ const Counter: React.FC = () => {
             )}
           </button>
           
-          <button 
-            className="btn btn-outline" 
-            onClick={handleRefresh}
+          {/* <button 
+            // className="btn btn-outline" 
+            // onClick={handleRefresh}
             disabled={loading}
           >
             {loading ? (
@@ -134,7 +134,7 @@ const Counter: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
               </svg>
             )}
-          </button>
+          </button> */}
         </div>
         
         <div className="mt-4 text-xs opacity-70">

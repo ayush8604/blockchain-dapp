@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1e293b;
+  background-color: #112724c7;
   color: #f8fafc;
 }
 
@@ -36,7 +36,8 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #334155;
+  background-color: #112724c7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .btn {
@@ -57,17 +58,19 @@ code {
 }
 
 .card {
-  background-color: #334155;
+  background-color: #14352f;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 1.5rem;
   margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer {
-  background-color: #334155;
+  background-color: #112724c7;
   padding: 1rem;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Additional utility classes */
@@ -111,8 +114,8 @@ code {
 .z-50 { z-index: 50; }
 .bg-black { background-color: #000; }
 .bg-opacity-50 { background-color: rgba(0, 0, 0, 0.5); }
-.bg-gray-800 { background-color: #1f2937; }
-.bg-gray-900 { background-color: #111827; }
+.bg-gray-800 { background-color: #14352f; }
+.bg-gray-900 { background-color: #112724c7; }
 .border-blue-500 { border-color: #3b82f6; }
 .text-blue-400 { color: #60a5fa; }
 .text-blue-600 { color: #2563eb; }
@@ -173,8 +176,8 @@ code {
 
 /* Home page classes */
 .min-h-screen { min-height: 100vh; }
-.bg-gray-900 { background-color: #111827; }
-.bg-gray-800 { background-color: #1f2937; }
+.bg-gray-900 { background-color: #112724c7; }
+.bg-gray-800 { background-color: #14352f; }
 .-mt-16 { margin-top: -4rem; }
 .text-white { color: #ffffff; }
 .text-gray-300 { color: #d1d5db; }
@@ -261,8 +264,76 @@ code {
 .transform { transform: translateX(-50%); }
 .-translate-x-1\/2 { transform: translateX(-50%); }
 .left-1\/2 { left: 50%; }
-.bg-green-800 { background-color: #166534; }
+.bg-green-800 { background-color: #112724c7; }
 .border-green-600 { border-color: #16a34a; }
 .text-green-100 { color: #dcfce7; }
 .text-green-400 { color: #4ade80; }
 .mt-1 { margin-top: 0.25rem; }
+
+/* Add override classes */
+.bg-base-200 {
+  background-color: #14352f;
+}
+
+.bg-base-300 {
+  background-color: #112724c7;
+}
+
+.bg-gray-800 {
+  background-color: #14352f;
+}
+
+.bg-gray-900 {
+  background-color: #112724c7;
+}
+
+/* Connect wallet button */
+.btn-connect {
+  background-color: #5f9ea0;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
+
+.btn-connect:hover {
+  background-color: #4f8a8b;
+}
+
+/* Wallet modal styles */
+.wallet-option {
+  background-color: #14352f;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wallet-option:hover {
+  border-color: #5f9ea0;
+}
+
+.blockchain-option {
+  background-color: #14352f;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blockchain-option.active {
+  background-color: rgba(95, 158, 160, 0.2);
+  color: #5f9ea0;
+}
+
+.blockchain-option:hover {
+  border-color: #5f9ea0;
+}

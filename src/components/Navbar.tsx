@@ -53,9 +53,9 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-lg">
+    <div className="navbar bg-[#112724c7] shadow-lg border-b border-gray-800">
       <div className="flex-1">
-        <a href="/" className="btn btn-ghost normal-case text-xl">Blockchain dApp</a>
+        <a href="/" className="text-xl font-semibold text-white opacity-90">BLOCKCHAIN dAPP_</a>
       </div>
       <div className="flex-none">
         {isConnected && address ? (
@@ -66,12 +66,12 @@ const Navbar: React.FC = () => {
                   href={getBlockExplorerLink(address)} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm font-bold hover:text-blue-400"
+                  className="text-sm font-bold hover:text-[#5f9ea0]"
                 >
                   {formatAddress(address)}
                 </a>
                 {isTestnet() && (
-                  <span className="bg-yellow-500 text-black text-xs px-2 py-0.5 rounded-full ml-2">
+                  <span className="bg-[#5f9ea0] bg-opacity-20 text-[#5f9ea0] text-xs px-2 py-0.5 rounded-full ml-2">
                     Testnet
                   </span>
                 )}
@@ -90,9 +90,9 @@ const Navbar: React.FC = () => {
         ) : (
           <button 
             onClick={connectWallet} 
-            className="btn btn-primary btn-sm"
+            className="bg-[#112724C7] font-medium py-2 px-4 rounded-md transition duration-150"
           >
-            Connect Wallet
+            Connect wallet
           </button>
         )}
       </div>
