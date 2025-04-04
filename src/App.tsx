@@ -60,11 +60,11 @@ function App() {
         )}
       </div>
       
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content mt-auto">
+      {/* <footer className="footer footer-center p-4 bg-base-300 text-base-content mt-auto">
         <div>
           <p>© 2023 - Blockchain dApp Frontend Integration Task</p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
