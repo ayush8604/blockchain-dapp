@@ -17,6 +17,9 @@ const TransactionHistory: React.FC = () => {
     return date.toLocaleString();
   };
 
+  // Create a sorted copy of the transaction history
+  const sortedTransactions = [...transactionHistory].sort((a, b) => b.timestamp - a.timestamp);
+
   return (
     <div className="card w-full max-w-4xl mx-auto bg-[#14352f] shadow-xl mt-4 border border-gray-800">
       <div className="card-body p-5">
@@ -58,40 +61,38 @@ const TransactionHistory: React.FC = () => {
                 </tr>
               ))}
               
-              {transactionHistory
-                .sort((a, b) => b.timestamp - a.timestamp)
-                .map((tx) => (
-                  <tr key={tx.hash} className="hover:bg-[#1a3934]">
-                    <td className="py-4 px-4 text-center text-sm">
-                      <a 
-                        href={`https://etherscan.io/tx/${tx.hash}`} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="font-mono text-blue-400 hover:text-[#5f9ea0] transition-colors break-all"
-                      >
-                        {tx.hash}
-                      </a>
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      {tx.status === 'success' ? (
-                        <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500 bg-opacity-20 text-green-400">
-                          Success
-                        </div>
-                      ) : tx.status === 'failed' ? (
-                        <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500 bg-opacity-20 text-red-300">
-                          Failed
-                        </div>
-                      ) : (
-                        <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500 bg-opacity-20 text-yellow-300">
-                          Pending
-                        </div>
-                      )}
-                    </td>
-                    <td className="py-4 px-4 text-center text-sm text-gray-400">
-                      {formatTimestamp(tx.timestamp)}
-                    </td>
-                  </tr>
-                ))}
+              {sortedTransactions.map((tx) => (
+                <tr key={tx.hash} className="hover:bg-[#1a3934]">
+                  <td className="py-4 px-4 text-center text-sm">
+                    <a 
+                      href={`https://etherscan.io/tx/${tx.hash}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="font-mono text-blue-400 hover:text-[#5f9ea0] transition-colors break-all"
+                    >
+                      {tx.hash}
+                    </a>
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    {tx.status === 'success' ? (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500 bg-opacity-20 text-green-400">
+                        Success
+                      </div>
+                    ) : tx.status === 'failed' ? (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500 bg-opacity-20 text-red-300">
+                        Failed
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500 bg-opacity-20 text-yellow-300">
+                        Pending
+                      </div>
+                    )}
+                  </td>
+                  <td className="py-4 px-4 text-center text-sm text-gray-400">
+                    {formatTimestamp(tx.timestamp)}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

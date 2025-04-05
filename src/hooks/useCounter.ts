@@ -96,6 +96,9 @@ const useCounter = () => {
       // Remove from pending
       dispatch(removePendingTransaction(tx.hash));
       
+      // Small delay to ensure state updates properly
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       // Refresh count
       await getCount();
       
@@ -163,6 +166,9 @@ const useCounter = () => {
       
       // Remove from pending
       dispatch(removePendingTransaction(tx.hash));
+      
+      // Small delay to ensure state updates properly
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Refresh count
       await getCount();

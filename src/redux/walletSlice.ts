@@ -78,13 +78,19 @@ export const walletSlice = createSlice({
       state.error = action.payload;
     },
     addPendingTransaction: (state, action: PayloadAction<string>) => {
-      state.pendingTransactions.push(action.payload);
+      state.pendingTransactions = [...state.pendingTransactions, action.payload];
+      
+      // Update localStorage
+      localStorage.setItem('walletState', JSON.stringify(state));
     },
     removePendingTransaction: (state, action: PayloadAction<string>) => {
       state.pendingTransactions = state.pendingTransactions.filter(tx => tx !== action.payload);
+      
+      // Update localStorage
+      localStorage.setItem('walletState', JSON.stringify(state));
     },
     addTransactionToHistory: (state, action: PayloadAction<{ hash: string; status: 'success' | 'failed' | 'pending'; timestamp: number }>) => {
-      state.transactionHistory.push(action.payload);
+      state.transactionHistory = [...state.transactionHistory, action.payload];
       
       // Update localStorage
       localStorage.setItem('walletState', JSON.stringify(state));
@@ -92,7 +98,10 @@ export const walletSlice = createSlice({
     updateTransactionStatus: (state, action: PayloadAction<{ hash: string; status: 'success' | 'failed' | 'pending' }>) => {
       const txIndex = state.transactionHistory.findIndex(tx => tx.hash === action.payload.hash);
       if (txIndex !== -1) {
-        state.transactionHistory[txIndex].status = action.payload.status;
+        // Create a new transaction history array with the updated transaction
+        state.transactionHistory = state.transactionHistory.map((tx, index) => 
+          index === txIndex ? { ...tx, status: action.payload.status } : tx
+        );
         
         // Update localStorage
         localStorage.setItem('walletState', JSON.stringify(state));
